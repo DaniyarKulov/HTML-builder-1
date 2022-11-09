@@ -7,6 +7,9 @@ const file = path.join(__dirname, 'text.txt');
 stdout.write('Привет, напишите текст: ');
 
 stdin.on('data', (data) =>{
+  
+  if (data.toString().trim() === 'exit') process.exit();
+
   fs.appendFile(file, 
     data,
     (err) => {
